@@ -27,7 +27,7 @@
               <tr>
                 <td>
                   <%= link_to(@user) do %>
-                    <%= attachment_image_tag(@user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg") %>
+                    <%= attachment_image_tag(@user, :profile_image, size: "50x50", format: "jpg", fallback: "no_image.jpg") %>
                   <% end %>
                 </td>
                 <td>

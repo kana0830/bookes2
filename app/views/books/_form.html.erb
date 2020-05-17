@@ -1,10 +1,4 @@
 <!--BOOK新規投稿フォーム ※ログイン時共通-->
-<% if user.errors.any? %>
-    <%= user.errors.count %>件のエラーが発生しました
-    <% user.errors.full_messages.each do |message| %>
-        <%= message %>
-    <% end %>
-<% end %>
 
 <%= form_with model: book do |f| %>
 <div class="form-group">
@@ -14,6 +8,6 @@
 <div class="form-group">
     <%= f.label :Opinion %>
     <%= f.text_area :body, class: "col-xs-12 book_body" %>
-    <%= f.submit "Create Book", class: "btn btn-primary col-xs-12" %>
+    <%= f.submit class: "btn btn-primary col-xs-12" %>
 </div>
 <% end %>

@@ -1,16 +1,12 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-6">    
+        <div class="col-xs-6">
         <h2>Editing Book</h2>
-            <% if @book.errors.any? %>
-                <%= @book.errors.count %>件のエラーが発生しました
-                <% @book.errors.full_messages.each do |message| %>
-                    <%= message %>
-                <% end %>
-            <% end %>
-        
         <%= form_with model: @book, local: true do |f| %>
+
+        <%= render 'layouts/error', model: f.object %>
+
         <div class="form-group">
           <%= f.label :Title %>
           <%= f.text_field :title, class: "col-xs-12 book_title", id: "book_title" %>
@@ -18,7 +14,7 @@
         <div class="form-group">
           <%= f.label :Opinion %>
           <%= f.text_area :body, class: "col-xs-12 book_body", id: "book_body" %>
-          <%= f.submit "Create Book", class: "btn btn-primary col-xs-12", method: :post %>
+          <%= f.submit class: "btn btn-primary col-xs-12", method: :post %>
         </div>
         <% end %>
         <%= link_to 'Show', @book %> | <%= link_to 'Back', books_path %>

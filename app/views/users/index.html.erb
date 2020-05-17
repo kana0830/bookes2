@@ -3,11 +3,11 @@
   <div class="row">
     <div class="col-xs-3">
       <h2>User info</h2>
-      <%= render 'users/info', user: @user %> 
+      <%= render "users/info", user: @user %>
 
 <!--BOOK新規投稿フォーム ※ログイン時共通-->
       <h2>New book</h2>
-        <%= render 'books/form', book: @book, user: @user %>
+        <%= render 'books/form', book: @book, user: @user%>
     </div>
 
 
@@ -15,25 +15,25 @@
     <div class="col-xs-9">
       <h2>Users</h2>
       <table class="table table-hover table-inverse">
-        <% @user.books.each do |book| %>
         <thead>
-            <tr>
-              <th scope="col">image</th>
-              <th scope="col">name</th>
-              <th scope="col"></th>
-            </tr>
+        <tr>
+          <th scope="col">image</th>
+          <th scope="col">name</th>
+          <th scope="col"></th>
+        </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <%= link_to(@user) do %>
-                <%= attachment_image_tag(@user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg") %>
-              <% end %>
-            </td>
-            <td><%= @user.name %></td>
-            <td><%= link_to 'Show', @user %></td>
-          </tr>
-        <% end %>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <%= link_to(user) do %>
+                  <%= attachment_image_tag(user, :profile_image, size: "40x40", format: "jpg", fallback: "no_image.jpg") %>
+                <% end %>
+              </td>
+              <td><%= user.name %></td>
+              <td><%= link_to 'Show', user %></td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
