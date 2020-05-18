@@ -1,6 +1,7 @@
 <!--BOOK新規投稿フォーム ※ログイン時共通-->
 
-<%= form_with model: book do |f| %>
+<%= form_for(book) do |f| %>
+
 <div class="form-group">
     <%= f.label :Title %>
     <%= f.text_field :title, class: "col-xs-12 book_title" %>

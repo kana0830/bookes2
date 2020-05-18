@@ -3,11 +3,11 @@
   <div class="row">
     <div class="col-xs-3">
       <h2>User info</h2>
-      <%= render 'users/info', user: @user %> 
+      <%= render 'users/info', user: @user %>
 
 <!--BOOK新規投稿フォーム ※ログイン時共通-->
       <h2>New book</h2>
-        <%= render 'books/form', book: @book, user: @user %>
+        <%= render 'books/form', book: @new_book, user: @user %>
     </div>
 
 <!--右側の表示　Books-->
@@ -29,8 +29,8 @@
                     <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger" %></td>
                     <% end %>
                 </tr>
-                
+
             </table>
         </div>
     </div>
-</div            
+</div
